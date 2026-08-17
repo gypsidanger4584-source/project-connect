@@ -17,7 +17,7 @@ public class RetrofitInstance {
 
     // ✅ 여기에 직접 API 키 넣기 (테스트용)
     private static final String OPENAI_API_KEY =
-            "REMOVED";
+            "";
 
     private static final OkHttpClient client = new OkHttpClient.Builder()
             // 로그 인터셉터
