@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="4dp">
+
+    <!-- 💬 사용자 메시지 전체 묶음 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/bg_chat_bubble_user"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        android:layout_weight="0.8"
+        android:elevation="1dp">
+
+        <!-- 메시지 본문 -->
+        <TextView
+            android:id="@+id/textUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:lineSpacingExtra="2dp"
+            android:text="안녕하세요, 오늘 날씨가 어떤가요?" />
+
+        <!-- 전송 시간 -->
+        <TextView
+            android:id="@+id/textTimeUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#DDE7F9"
+            android:layout_marginTop="4dp"
+            android:gravity="end"
+            android:text="오전 10:31" />
+    </LinearLayout>
+
+</FrameLayout>

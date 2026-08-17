@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 기본 색상 -->
+    <color name="white">#000000</color> <!-- 라이트 모드 반전 -->
+    <color name="black">#FFFFFF</color>
+    <color name="gray">#FFFFFF</color>
+    <color name="dark_gray">#FFFFFF</color>
+    <color name="neutral_gray">#AAAAAA</color>
+    <color name="dividerGray">#333333</color>
+
+    <!-- 테마 색상 -->
+    <color name="primary_pink">#FF6FB3</color>
+    <color name="primary_purple">#B085F5</color>
+    <color name="pink_accent">#FF80AB</color>
+    <color name="toolbar_color">#E87C3A</color>
+    <color name="btn_home">#64B5F6</color>
+    <color name="blue">#7986CB</color>
+    <color name="green">#66FF66</color>
+    <color name="danger_red">#FF8A80</color>
+    <color name="red">#E57373</color>
+    <color name="colorWarning">#FFD600</color>
+
+    <!-- 텍스트 색상 -->
+    <color name="dark_teal">#A0B8B8</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#CCCCCC</color>
+    <color name="input_hint">#66FF66</color>
+
+    <!-- UI 요소 색상 -->
+    <color name="fab_background_color">#FF80AB</color>
+    <color name="fab_icon_tint">#000000</color>
+    <color name="search_bg">#1E1E1E</color>
+    <color name="search_icon">#CCCCCC</color>
+    <color name="search_text">#FFFFFF</color>
+    <color name="comment_input_bg">#2C2C2C</color>
+    <color name="comment_input_text">#FFFFFF</color>
+    <color name="comment_input_hint">#AAAAAA</color>
+    <color name="card_background">#1E1E1E</color>
+    <color name="bg_main">#121212</color>
+    <color name="bg_header">#223344</color>
+
+    <!-- 버튼 색상 -->
+    <color name="btn_edit">#81C784</color>
+    <color name="btn_pin">#5C6BC0</color>
+    <color name="btn_delete">#E57373</color>
+    <color name="btn_cancel_reply">#B2FF59</color>
+    <color name="btn_back">#AAAAAA</color>
+    <color name="btn_text_light">#000000</color>
+
+    <!-- 게시판/댓글 색상 -->
+    <color name="reply_arrow">#9CA3AF</color>
+    <color name="comment_author">#E5E7EB</color>
+    <color name="comment_content">#FFFFFF</color>
+    <color name="delete_button">#FF6B6B</color>
+    <color name="post_title">#E5E7EB</color>
+    <color name="post_content">#D1D5DB</color>
+    <color name="post_date">#9CA3AF</color>
+
+    <!-- register.xml에서 필요한 추가 색상 (두 번째 파일에만 있음) -->
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="hintColor">#CCCCCC</color>
+    <color name="iconTint">#CCCCCC</color>
+    <color name="editBoxColor">#2A2A2A</color>
+
+    <!-- 검색 관련 -->
+    <color name="search_item_background">#2A2A2A</color>
+    <color name="search_item_text">#FFFFFF</color>
+
+</resources>

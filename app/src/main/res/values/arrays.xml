@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major">
+        <item>전자공학과</item>
+        <item>정보통신과</item>
+        <item>전기과</item>
+        <item>*컴퓨터 소프트웨어과*</item>
+        <item>건축과</item>
+        <item>실내건축과</item>
+        <item>패션디자인비즈니스과</item>
+        <item>뷰티스타일리스트과 헤어디자인전공</item>
+        <item>게임콘텐츠과</item>
+        <item>웹툰만화콘텐츠과</item>
+        <item>영상콘텐츠과 영상콘텐츠제작전공</item>
+        <item>시각디자인과</item>
+        <item>K-POP과</item>
+        <item>유통물류과</item>
+        <item>경영학과</item>
+        <item>세무회계과</item>
+        <item>국방군사학과</item>
+        <item>경찰경호보안과</item>
+        <item>사회복지과</item>
+        <item>사회복지경영과</item>
+        <item>유아교육과</item>
+        <item>유아특수재활과</item>
+        <item>사회복지과 아동심리보육전공</item>
+        <item>치위생과</item>
+        <item>치기공과</item>
+        <item>작업치료과(신설)</item>
+        <item>응급구조과</item>
+        <item>보건의료행정과</item>
+        <item>스포츠재활과</item>
+        <item>식품영양학과</item>
+        <item>반려동물보건과</item>
+        <item>반려동물산업과</item>
+        <item>항공서비스과</item>
+        <item>관광영어과</item>
+        <item>호텔관광과</item>
+        <item>호텔외식조리과</item>
+        <item>카페-베이커리과</item>
+        <item>호텔외식경영전공</item>
+        <item>자유전공학과(신설)</item>
+        <item>학사-석사과정</item>
+    </string-array>
+</resources>

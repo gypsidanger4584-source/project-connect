@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===================== 텍스트 계층 ===================== -->
+    <style name="Text_Base">
+        <item name="android:textColor">@color/color_foreground</item>
+        <item name="android:textSize">@dimen/text_base</item>
+    </style>
+
+    <style name="Text_H1" parent="@style/Text_Base">
+        <item name="android:textSize">@dimen/text_2xl</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <style name="Text_H2" parent="@style/Text_Base">
+        <item name="android:textSize">@dimen/text_xl</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text_H3" parent="@style/Text_Base">
+        <item name="android:textSize">@dimen/text_lg</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text_H4" parent="@style/Text_Base">
+        <item name="android:textSize">@dimen/text_base</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text_Label" parent="@style/Text_Base">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text_Button" parent="@style/Text_Base">
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Text_Input" parent="@style/Text_Base">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <!-- ===================== 커스텀 위젯 ===================== -->
+
+    <!-- Round FAB (두 파일 동일 → 하나만 유지) -->
+    <style name="CustomRoundFab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/FabShapeAppearance</item>
+    </style>
+
+    <style name="FabShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- 완전 원형 -->
+    </style>
+
+    <!-- DayTab: 두 번째 파일이 더 완성형이므로 그걸 유지 -->
+    <style name="DayTab" parent="@style/Text_H4">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:background">@drawable/bg_day_tab</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <!-- Label hint white -->
+    <style name="TextInputLayoutWhiteHint" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">#FFFFFFFF</item>
+        <item name="android:textColorHint">#FFFFFFFF</item>
+    </style>
+
+
+    <!-- ===================== Register 전용 MyTextInput ===================== -->
+    <!-- 이건 첫 번째 파일에만 있으므로 추가해줌 -->
+    <style name="MyTextInput" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextColor">@color/hintColor</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="startIconTint">@color/iconTint</item>
+        <item name="boxBackgroundColor">@color/editBoxColor</item>
+
+        <!-- 둥근 모서리 -->
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="19dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_back"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="뒤로가기"
+                app:tint="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 프로필"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- 오른쪽 지도 아이콘 -->
+            <ImageButton
+                android:id="@+id/btn_map"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_map"
+                android:contentDescription="지도"/>
+        </LinearLayout>
+
+        <!-- 중앙 프로필 카드 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_profile_card"
+                android:padding="20dp"
+                android:elevation="3dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/user_profile"
+                    android:src="@drawable/default_profile"
+                    android:contentDescription="Profile"/>
+
+                <TextView
+                    android:id="@+id/text_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학과"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/gray"/>
+
+                <TextView
+                    android:id="@+id/text_student_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학번"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 계정 카테고리 -->
+        <TextView
+            android:id="@+id/text_category_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="계정"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_account_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="아이디 변경"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_account_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="비밀번호 변경"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_account_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="이메일 변경"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/text_account_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="칭호"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="보안"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/security_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="관리자 코드 입력"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <!-- 유틸 카테고리 -->
+        <TextView
+            android:id="@+id/text_category_util"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="유틸"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/text_util_department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="학과설정"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <!-- 커뮤니티 카테고리 -->
+        <TextView
+            android:id="@+id/text_category_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="커뮤니티"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_community_usage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="커뮤니티 이용 제한 내역"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_community_restriction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="커뮤니티 제한"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="로그아웃"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</ScrollView>

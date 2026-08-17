@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ======================================================
+         ✅ 앱 전체 공통 테마 (Material3 Light + NoActionBar 기반)
+         ====================================================== -->
+    <style name="Theme.App" parent="Theme.Material3.Light.NoActionBar">
+
+        <!-- 배경 / 전경 기본값 -->
+        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:colorBackground">@color/color_background</item>
+
+        <!-- ===== Material3 컬러 매핑 ===== -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/color_primary_foreground</item>
+
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_secondary_foreground</item>
+
+        <item name="colorSurface">@color/color_card</item>
+        <item name="colorOnSurface">@color/color_card_foreground</item>
+
+        <item name="colorError">@color/color_destructive</item>
+        <item name="colorOnError">@color/color_destructive_foreground</item>
+
+        <!-- 시스템 UI (상태바/네비바) -->
+        <item name="android:textColor">@color/color_foreground</item>
+        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+
+    </style>
+
+    <style name="Theme.YourApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ys_logo</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+    </style>
+
+
+
+    <!-- ======================================================
+         ✅ 기존 구조 유지 (Base → App Theme)
+         ====================================================== -->
+
+    <style name="Base.Theme.Login_new" parent="Theme.App">
+        <!-- 필요하면 여기에 오버라이드 추가 -->
+        <!-- 예: <item name="colorPrimary">@color/primary_pink</item> -->
+    </style>
+
+    <!-- 최종 앱에서 사용하는 테마 -->
+    <style name="Theme.Login_new" parent="Base.Theme.Login_new" />
+
+
+</resources>

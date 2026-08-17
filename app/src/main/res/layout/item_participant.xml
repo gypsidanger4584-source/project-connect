@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- 🔹 참가자 프로필 이미지 -->
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/default_profile"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_mask"
+        android:layout_marginEnd="12dp" />
+
+    <!-- 🔹 이름 + 칭호 + 점수 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="홍길동"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입문자"
+            android:textColor="#E6E1FF"
+            android:textSize="12sp"
+            android:layout_marginTop="1dp" />
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0점"
+            android:textColor="#FFD966"
+            android:textSize="12sp"
+            android:layout_marginTop="1dp" />
+    </LinearLayout>
+
+    <!-- 🔹 방장 전용 강퇴 버튼 -->
+    <ImageButton
+        android:id="@+id/btnKick"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close_red"
+        android:tint="#FF5555"
+        android:layout_marginStart="6dp"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 🔙 상단 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="#7A4FF7" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="문제 상세 보기"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="12dp"
+                android:textColor="#333333" />
+        </LinearLayout>
+
+        <!-- 🔹 문제 제목 -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제 제목"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#111111"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 🔹 작성자 -->
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="출제자: 익명"
+            android:textColor="#777777"
+            android:textSize="14sp" />
+
+        <!-- 🔹 부가정보 -->
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보통 · 기타 · 2025-11-08"
+            android:textColor="#777777"
+            android:textSize="14sp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 🔹 보기 개수 -->
+        <TextView
+            android:id="@+id/tvOptionsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보기 개수: 4개"
+            android:textColor="#444444"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 🔹 점수 -->
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="획득 점수: 5점"
+            android:textColor="#7A4FF7"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 🔹 정답률 Progress -->
+        <TextView
+            android:id="@+id/tvSolvedInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="풀이자 수: 0명 / 정답률: 0%"
+            android:textColor="#555555"
+            android:textSize="15sp"
+            android:layout_marginBottom="4dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarRate"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:progress="0"
+            android:max="100"
+            android:progressTint="#7A4FF7"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 🔹 문제 풀기 버튼 -->
+        <Button
+            android:id="@+id/btnSolve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제 풀기"
+            android:backgroundTint="#7A4FF7"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>

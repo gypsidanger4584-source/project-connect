@@ -1,0 +1,140 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F6F8FC"
+    android:fitsSystemWindows="true"
+    tools:context=".alogic.TimetableActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="16dp">
+
+        <!-- 상단 상태 영역 -->
+        <RelativeLayout
+            android:id="@+id/statusRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:id="@+id/tvTodayStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:letterSpacing="0.02"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="TODAY 10/20 (MON)" />
+
+            <TextView
+                android:id="@+id/tvNextClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tvTodayStatus"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:textColor="#5F6368"
+                android:textSize="15sp"
+                tools:text="Next Class in 10 min" />
+        </RelativeLayout>
+
+        <!-- 요일 선택 -->
+        <LinearLayout
+            android:id="@+id/dateRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:weightSum="5">
+
+            <TextView
+                android:id="@+id/tvD0"
+                style="@style/DayTab"
+                android:text="Mon" />
+
+            <TextView
+                android:id="@+id/tvD1"
+                style="@style/DayTab"
+                android:text="Tue" />
+
+            <TextView
+                android:id="@+id/tvD2"
+                style="@style/DayTab"
+                android:text="Wed" />
+
+            <TextView
+                android:id="@+id/tvD3"
+                style="@style/DayTab"
+                android:text="Thu" />
+
+            <TextView
+                android:id="@+id/tvD4"
+                style="@style/DayTab"
+                android:text="Fri" />
+        </LinearLayout>
+
+        <!-- 시간표 영역 -->
+        <LinearLayout
+            android:id="@+id/timetableContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_timetable_card"
+            android:elevation="3dp"
+            android:padding="8dp"
+            android:layout_marginBottom="12dp">
+
+            <com.example.login_new.alogic.TimetableView
+                android:id="@+id/timetableView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+
+        <!-- MEMO FEED -->
+        <LinearLayout
+            android:id="@+id/memoSection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/bg_timetable_card"
+            android:elevation="3dp"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/memoHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MEMO FEED"
+                android:textStyle="bold"
+                android:textColor="#1E1E1E"
+                android:textSize="16sp"
+                android:paddingBottom="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/memoList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                android:overScrollMode="always" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

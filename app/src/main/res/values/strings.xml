@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 기존 문자열 (유지) -->
+    <string name="app_name">연성 커넥트</string>
+    <string name="university_title">연성대학교 게시판</string>
+    <string name="write_title">글 작성하기</string>
+    <string name="hint_title">제목을 입력하세요</string>
+    <string name="hint_content">내용을 입력하세요</string>
+    <string name="save">등록</string>
+    <string name="cancel">취소</string>
+    <string name="detail_title">제목</string>
+    <string name="detail_content">내용</string>
+    <string name="write_comment">댓글을 입력하세요</string>
+    <string name="detail_date">날짜</string>
+    <string name="delete_post">게시글 삭제</string>
+    <string name="submit_comment">댓글 등록</string>
+    <string name="back_to_main">← 뒤로가기</string>
+
+    <string name="category_prompt">카테고리를 선택하세요</string>
+
+    <string-array name="categories">
+        <item>자유게시판</item>
+        <item>스터디게시판</item>
+        <item>장터게시판</item>
+    </string-array>
+
+    <!-- 💡 안내 카드 -->
+    <string name="tip_text">💡 Tip: 다른 학우들에게 도움이 되는 정보를 공유하거나, 궁금한 점을 질문해보세요!</string>
+    <string name="guide_title">ℹ️ 게시글 작성 가이드</string>
+    <string name="guide_body">• 다른 사람을 존중하고 배려하는 내용을 작성해주세요\n• 개인정보나 민감한 정보는 공유하지 마세요\n• 적절한 카테고리를 선택하면 더 많은 사람들이 볼 수 있어요</string>
+
+    <!-- ✅ 추가된 문자열 -->
+    <string name="category_label"># 카테고리 *</string>
+    <string name="title_label">T 제목</string>
+    <string name="content_label">≡ 내용</string>
+    <string name="btn_submit_bottom">게시글 등록</string>
+    <string name="next_class">Next Class in</string>
+    <string name="memo_feed">MEMO FEED</string>
+    <string name="today_label">TODAY</string>
+    <string name="error_empty_title">제목을 입력해주세요.</string>
+    <string name="error_empty_content">내용을 입력해주세요.</string>
+    <string name="post_submit_success">게시글이 등록되었습니다!</string>
+    <string name="post_submit_failed">게시글 등록에 실패했습니다. 다시 시도해주세요.</string>
+
+    <!-- Top bar -->
+    <string name="back">뒤로가기</string>
+    <string name="menu">메뉴</string>
+    <string name="room_a">Room A</string>
+    <string name="room_info">👥 8/20 • 2개 문제</string>
+
+    <!-- Tabs -->
+    <string name="tab_chat">💬 채팅</string>
+    <string name="tab_quiz">🧩 문제</string>
+
+    <!-- Welcome -->
+    <string name="welcome_message">💬 Room A에 오신 것을 환영합니다! 👋</string>
+    <string name="studyroom_notice_title">📌 스터디룸 이용 안내</string>
+    <string name="studyroom_notice_content">• 존중하는 태도로 대화해주세요\n• 문제 출제 시 +1코인, 정답 시 +5코인 획득\n• 학습과 관련된 내용으로 소통해주세요\n• 부적절한 내용은 신고될 수 있습니다.</string>
+
+    <!-- Empty state -->
+    <string name="first_message_prompt">첫 메시지를 보내보세요!</string>
+    <string name="chat_icon">채팅 아이콘</string>
+
+    <!-- Input -->
+    <string name="hint_enter_message">메시지를 입력하세요</string>
+    <string name="send_message">메시지 전송</string>
+
+    <string-array name="study_category_filter">
+        <item>전체</item>
+        <item>취미</item>
+        <item>여행</item>
+        <item>공부</item>
+        <item>자격증</item>
+        <item>취업</item>
+        <item>언어</item>
+        <item>기타</item>
+    </string-array>
+
+    <!-- 🟣 Drawer 쪽 추가 문자열 -->
+    <string name="active_title">활동자 (0)</string>
+    <string name="inactive_title">비활동자 (0)</string>
+    <string name="leave_room">🚪 방 나가기</string>
+    <string name="delete_room">🗑️ 방 삭제하기</string>
+
+</resources>

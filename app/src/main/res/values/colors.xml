@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== Base / 기존 색상 ===== -->
+    <color name="pink">#ee238e</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#8C8C8C</color>
+    <color name="dark_gray">#333333</color>
+    <color name="neutral_gray">#888888</color>
+    <color name="dividerGray">#DDDDDD</color>
+    <color name="navy">#001F54</color>
+    <color name="light_gray">#E0E0E0</color>
+
+    <color name="primary_pink">#EE238E</color>
+    <color name="primary_purple">#6200EE</color>
+    <color name="pink_accent">#FF4081</color>
+    <color name="toolbar_color">#F99851</color>
+    <color name="btn_home">#2196F3</color>
+    <color name="blue">#3F51B5</color>
+    <color name="green">#00CC00</color>
+    <color name="danger_red">#F44336</color>
+    <color name="red">#B71C1C</color>
+    <color name="colorWarning">#FFF000</color>
+
+    <color name="dark_teal">#2c3434</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#888888</color>
+    <color name="input_hint">#22CC22</color>
+
+    <color name="fab_background_color">#FF4081</color>
+    <color name="fab_icon_tint">#FFFFFF</color>
+    <color name="search_bg">#223212</color>
+    <color name="search_icon">#888888</color>
+    <color name="search_text">#888888</color>
+
+    <color name="comment_input_bg">#EEEEEE</color>
+    <color name="comment_input_text">#FFFFFF</color>
+    <color name="comment_input_hint">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="bg_main">#F5F5F5</color>
+    <color name="bg_header">#ccefff</color>
+
+    <color name="btn_edit">#4CAF50</color>
+    <color name="btn_pin">#3F51B5</color>
+    <color name="btn_delete">#FF6666</color>
+    <color name="btn_cancel_reply">#82FF44</color>
+    <color name="btn_back">#888888</color>
+    <color name="btn_text_light">#FFFFFF</color>
+
+    <!-- 댓글/게시글 -->
+    <color name="reply_arrow">#6B7280</color>
+    <color name="comment_author">#111827</color>
+    <color name="comment_content">#000000</color>
+    <color name="delete_button">#EF4444</color>
+    <color name="post_title">#111827</color>
+    <color name="post_content">#374151</color>
+    <color name="post_date">#6B7280</color>
+
+    <!-- register.xml에서 요구되는 값 -->
+    <color name="textPrimary">#111111</color>
+    <color name="hintColor">#9EA4AA</color>
+    <color name="iconTint">#9EA4AA</color>
+    <color name="editBoxColor">#F3F3F6</color>
+
+    <color name="search_item_background">#EEEEEE</color>
+    <color name="search_item_text">#000000</color>
+
+    <!-- ===== Figma Design Tokens ===== -->
+    <color name="color_background">#FFFFFFFF</color>
+    <color name="color_foreground">#121212</color>
+    <color name="color_card">#FFFFFFFF</color>
+    <color name="color_card_foreground">#121212</color>
+    <color name="color_popover">#FFFFFFFF</color>
+    <color name="color_popover_foreground">#121212</color>
+
+    <color name="color_primary">#030213</color>
+    <color name="color_primary_foreground">#FFFFFFFF</color>
+
+    <color name="color_secondary">#F2F2F9</color>
+    <color name="color_secondary_foreground">#030213</color>
+
+    <color name="color_muted">#ECECF0</color>
+    <color name="color_muted_foreground">#717182</color>
+
+    <color name="color_accent">#E9EBEF</color>
+    <color name="color_accent_foreground">#030213</color>
+
+    <color name="color_destructive">#D4183D</color>
+    <color name="color_destructive_foreground">#FFFFFFFF</color>
+
+    <color name="color_border">#1A000000</color>
+    <color name="color_input">#00000000</color>
+    <color name="color_input_background">#F3F3F5</color>
+    <color name="color_switch_background">#CBCED4</color>
+    <color name="color_ring">#B5B5B5</color>
+
+    <!-- Charts -->
+    <color name="color_chart_1">#F0902D</color>
+    <color name="color_chart_2">#5CB3D9</color>
+    <color name="color_chart_3">#5F6EEA</color>
+    <color name="color_chart_4">#B3E469</color>
+    <color name="color_chart_5">#E6C045</color>
+
+    <!-- Sidebar -->
+    <color name="color_sidebar">#FCFCFE</color>
+    <color name="color_sidebar_foreground">#121212</color>
+    <color name="color_sidebar_primary">#030213</color>
+    <color name="color_sidebar_primary_foreground">#FCFCFE</color>
+    <color name="color_sidebar_accent">#F7F7FB</color>
+    <color name="color_sidebar_accent_foreground">#343434</color>
+    <color name="color_sidebar_border">#EAEAEA</color>
+    <color name="color_sidebar_ring">#B5B5B5</color>
+
+    <!-- Aliases -->
+    <color name="primary">@color/color_primary</color>
+    <color name="primary_variant">#1E1E2A</color>
+
+    <!-- 말풍선 -->
+    <color name="bubble_left_bg">@color/color_muted</color>
+    <color name="bubble_right_bg">@color/color_primary</color>
+
+    <!-- Ripple -->
+    <color name="ripple_color">#1F000000</color>
+    <color name="color_surface">@color/color_background</color>
+
+    <!-- 입력창 alias -->
+    <color name="input_bg">@color/color_input_background</color>
+    <color name="input_border">@color/color_border</color>
+
+    <!-- 상단바 gradient -->
+    <color name="topbar_start">@color/color_primary</color>
+    <color name="topbar_end">@color/color_chart_3</color>
+
+    <!-- 기타 -->
+    <color name="divider">@color/color_border</color>
+    <color name="gold">#FFD700</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_600">#757575</color>
+
+    <color name="gray_300">#D6D6D6</color>
+    <color name="purple_500">#7A4FF7</color>
+    <color name="purple_700">#5B32B4</color>
+    <color name="teal_700">#018786</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_500">#9E9E9E</color>
+
+    <color name="correct_green">#2ECC71</color>
+    <color name="wrong_red">#E74C3C</color>
+
+</resources>

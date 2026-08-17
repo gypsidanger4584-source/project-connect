@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F9F9FB">
+
+    <!-- 🔹 점수 현황 카드 -->
+    <LinearLayout
+        android:id="@+id/layoutScoreCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bg_card_studyroom"
+        android:elevation="3dp"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:id="@+id/tvScoreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏅 나의 칭호 진척도"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1E1E1E"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvScoreInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 점수: 0점 / 다음 칭호까지 5점 남음"
+            android:textSize="14sp"
+            android:textColor="#444444"
+            android:layout_marginBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progressScore"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:progress="0"
+            android:max="5"
+            android:progressTint="#7A4FF7"
+            android:backgroundTint="#DDDDDD"
+            android:clipToOutline="true" />
+
+    </LinearLayout>
+
+    <!-- 🔹 칭호 리스트 -->
+    <ListView
+        android:id="@+id/listViewTitles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="6dp"
+        android:divider="#E0E0E0"
+        android:background="#FFFFFF"
+        android:padding="4dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

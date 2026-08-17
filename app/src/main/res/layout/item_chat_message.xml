@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="6dp"
+    android:clipToPadding="false"
+    android:background="@android:color/transparent">
+
+    <!-- 🟣 시스템 메시지 -->
+    <TextView
+        android:id="@+id/tvSystemMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_system_message"
+        android:textColor="#666666"
+        android:textSize="12sp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="6dp"
+        android:layout_marginVertical="8dp"
+        android:visibility="gone"
+        android:gravity="center" />
+
+    <!-- 🟢 왼쪽 메시지 -->
+    <LinearLayout
+        android:id="@+id/layoutLeft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:layout_marginVertical="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTitleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용자명 (입문자)"
+            android:textColor="#7A7A7A"
+            android:textSize="11sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="2dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom|start">
+
+            <TextView
+                android:id="@+id/tvMessageLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_left"
+                android:textColor="#222222"
+                android:textSize="14sp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:maxWidth="280dp"
+                android:layout_marginStart="8dp" />
+
+            <TextView
+                android:id="@+id/tvTimeLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"
+                android:layout_marginStart="6dp"
+                android:text="오후 3:45"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 🔵 오른쪽 메시지 -->
+    <LinearLayout
+        android:id="@+id/layoutRight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:layout_marginVertical="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTitleRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나 (입문자)"
+            android:textColor="#7A7A7A"
+            android:textSize="11sp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom|end"
+            android:layout_gravity="end">
+
+            <TextView
+                android:id="@+id/tvTimeRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"
+                android:layout_marginEnd="6dp"
+                android:text="오후 3:45"
+                android:layout_gravity="bottom" />
+
+            <TextView
+                android:id="@+id/tvMessageRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_right"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="10dp"
+                android:maxWidth="280dp"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

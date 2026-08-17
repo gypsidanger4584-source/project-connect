@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/studyDrawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 🟣 메인 문제 화면 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F6F8FC">
+
+        <!-- 상단 헤더 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_study_gradient"
+            android:layout_marginTop="20dp"
+            android:elevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/tvRoomTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Room A"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <!-- 🟣 삼선 버튼 -->
+                <ImageButton
+                    android:id="@+id/btnMenu"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_menu"
+                    app:tint="@android:color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRoomInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="👥 8/20 • 2개 문제"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 탭 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:background="#EDE4FF"
+            android:paddingHorizontal="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tabChat"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="💬 채팅"
+                android:textColor="#444"
+                android:textSize="15sp"
+                android:background="@drawable/bg_tab_unselected" />
+
+            <TextView
+                android:id="@+id/tabProblem"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="🎯 문제"
+                android:textStyle="bold"
+                android:textColor="#7A4FF7"
+                android:background="@drawable/bg_tab_selected" />
+        </LinearLayout>
+
+        <!-- 문제 목록 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerProblems"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <!-- 하단 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddProblem"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="+ 새 문제 만들기"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_button_gradient"
+            android:layout_margin="16dp"
+            style="@style/Widget.MaterialComponents.Button" />
+    </LinearLayout>
+
+    <!-- 🟣 오른쪽 Drawer (참가자 목록 / 내 프로필 / 방 나가기) -->
+    <LinearLayout
+        android:id="@+id/drawerParticipants"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:background="@drawable/bg_drawer_gradient"
+        android:padding="16dp">
+
+        <!-- 내 프로필 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/userProfile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/default_profile"
+                android:layout_marginEnd="12dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2023100186"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/userTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="입문자"
+                    android:textColor="#DDDDDD"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#33FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 활동자 -->
+        <TextView
+            android:id="@+id/tvActiveTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="활동자 (2)"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerActive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:overScrollMode="never" />
+
+        <!-- 비활동자 -->
+        <TextView
+            android:id="@+id/tvInactiveTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="비활동자 (2)"
+            android:textColor="#DDDDDD"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerInactive"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never" />
+
+        <!-- 🚪 방 나가기 버튼 (일반 참가자만 표시) -->
+        <Button
+            android:id="@+id/btnLeaveRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚪 방 나가기"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#7A4FF7"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <!-- 🔴 방 삭제 버튼 (방장 전용) -->
+        <Button
+            android:id="@+id/btnDeleteRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🗑️ 방 삭제하기"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#D32F2F"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/bg_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#1F2937"
+        android:centerColor="#111827"
+        android:endColor="#1F2937"
+        android:type="linear"/>
+</shape>

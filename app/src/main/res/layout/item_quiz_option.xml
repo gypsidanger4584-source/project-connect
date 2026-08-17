@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingVertical="10dp">
+
+    <!-- MaterialRadioButton: 테마 색 자동 적용 + 또렷한 선택 표시 -->
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:useMaterialThemeColors="true"
+        android:layout_marginEnd="12dp" />
+
+    <!-- 입력칸: 0dp + weight=1 로 가로 꽉 채움 -->
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:hint="선택지"
+        android:background="@null"
+        android:paddingHorizontal="16dp"
+        android:textSize="17sp"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+</LinearLayout>

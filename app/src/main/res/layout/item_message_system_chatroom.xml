@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/tvSystem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_system_notice"
+        android:textColor="#666666"
+        android:textSize="12sp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="8dp"
+        android:gravity="center"
+        android:text="⚠️ 욕설·비방은 신고 및 제재 대상입니다.\n🚨 문제가 되는 대화는 언제든 신고할 수 있어요.\n😊 서로 즐거운 시간 보내요!" />
+</LinearLayout>

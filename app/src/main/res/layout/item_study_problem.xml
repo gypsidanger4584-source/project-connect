@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_problem_card"
+    android:padding="12dp"
+    android:layout_marginBottom="10dp"
+    android:gravity="center_vertical">
+
+    <!-- 프로필 -->
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/default_profile"
+        android:scaleType="centerCrop"
+        android:background="@drawable/default_profile"/>
+
+    <!-- 텍스트 전체 영역 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <!-- 첫 줄: 제목 + 태그 + 체크 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvProblemTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="문제 제목"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <!-- 🟣 내 문제 태그 -->
+            <TextView
+                android:id="@+id/tvMyProblemTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내 문제"
+                android:textColor="#7A4FF7"
+                android:textSize="12sp"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:background="@drawable/bg_my_problem_tag"
+                android:visibility="gone"
+                android:layout_marginStart="6dp"/>
+
+            <!-- 정답 표시 -->
+            <ImageView
+                android:id="@+id/ivSolvedCheck"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/ic_check"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- 작성자 & 시간 -->
+        <TextView
+            android:id="@+id/tvAuthorInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="작성자 • 시간"
+            android:textColor="#666"
+            android:textSize="12sp"/>
+
+        <!-- 난이도 + 카테고리 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tvDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:background="@drawable/bg_tag_normal"
+                android:textColor="#000"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자료구조"
+                android:layout_marginStart="6dp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:background="@drawable/bg_tag_category"
+                android:textColor="#3F51B5"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

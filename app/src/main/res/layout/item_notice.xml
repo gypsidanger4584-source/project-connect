@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_notice"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- 🔹 제목 + 날짜 + [더보기] -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvNoticeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="공지 제목"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#0B325A"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvNoticeTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11/09 12:30"
+            android:textSize="12sp"
+            android:textColor="#777"
+            android:layout_marginEnd="6dp" />
+
+        <TextView
+            android:id="@+id/tvMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[더보기]"
+            android:textSize="12sp"
+            android:textColor="#7A4FF7" />
+    </LinearLayout>
+
+    <!-- 🔹 본문 -->
+    <TextView
+        android:id="@+id/tvNoticeContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="공지 내용이 여기에 표시됩니다."
+        android:textSize="14sp"
+        android:textColor="#444" />
+
+    <!-- 🔹 관리자용 버튼 영역 -->
+    <LinearLayout
+        android:id="@+id/layoutNoticeActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/btnEditNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[수정]"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#2563EB"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="2dp" />
+
+        <TextView
+            android:id="@+id/btnDeleteNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[삭제]"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#DC2626"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="2dp"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <!-- 🔥 굵은 구분선 (추가됨) -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#D1D5DB"
+        android:layout_marginTop="12dp"
+        android:alpha="0.9"/>
+
+</LinearLayout>

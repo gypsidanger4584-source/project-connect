@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="3dp"
+    app:cardCornerRadius="14dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#C8B8FF"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 🔹 상단 요약 -->
+        <LinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 💬 대표 아이콘 -->
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_chat"
+                app:tint="#7A4FF7"
+                android:layout_marginEnd="12dp" />
+
+            <!-- 🧾 텍스트 정보 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- ✅ 방 이름  -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvRoomName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Room A"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#1E1E1E" />
+
+                    <!-- ⭐ 새로 추가됨: 내가 만든 방 배지 -->
+                    <TextView
+                        android:id="@+id/tvMyBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내 방"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_myroom_badge"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <!-- 📘 주제 요약 -->
+                <TextView
+                    android:id="@+id/tvRoomDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자료구조 &amp; 알고리즘 스터디"
+                    android:textSize="13sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="2dp" />
+
+                <!-- 👑 방장 정보 -->
+                <TextView
+                    android:id="@+id/tvOwnerInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👑 홍길동 · 2025.11.08 생성"
+                    android:textSize="12sp"
+                    android:textColor="#888888"
+                    android:layout_marginTop="1dp" />
+            </LinearLayout>
+
+            <!-- ⬇️ 펼침 버튼 -->
+            <ImageView
+                android:id="@+id/btnExpand"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_expand_more"
+                app:tint="#7A4FF7" />
+        </LinearLayout>
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ECE8FF"
+            android:layout_marginVertical="12dp" />
+
+        <!-- 🔹 확장 영역 -->
+        <LinearLayout
+            android:id="@+id/layoutExpanded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="#F7F4FF"
+            android:padding="12dp"
+            android:clipToOutline="true">
+
+            <TextView
+                android:id="@+id/tvTopic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📚 학습 주제: 자료구조 &amp; 알고리즘"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏷 카테고리: 알고리즘"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👥 인원: 8 / 20명"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvProblems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎯 문제: 8개"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 기간: 2025-11-06 ~ 2025-12-31"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnEnterRoom"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="방 입장하기"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#0B325A"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:drawableStart="@drawable/ic_chat"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

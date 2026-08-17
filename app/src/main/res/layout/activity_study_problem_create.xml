@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F8F9FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- 🔹 상단 툴바 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#333333" />
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+        </LinearLayout>
+
+        <!-- 🔹 상단 제목 -->
+        <TextView
+            android:id="@+id/tvQuizTitleHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제 만들기"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#0B325A"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvRoomInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Room A에 문제 출제 (+1코인)"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="#7A4FF7"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 🔹 문제 제목 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="퀴즈 제목 *">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editQuizTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="50"
+                android:inputType="textCapSentences"
+                android:textColor="#222"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🔹 난이도 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="난이도"
+            app:boxStrokeColor="#7A4FF7"
+            app:boxStrokeWidthFocused="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdownDifficulty"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:hint="난이도를 선택하세요"
+                android:textColor="#222"
+                android:textSize="18sp"
+                android:inputType="none"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="@null" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🔹 문제 내용 -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="문제 *">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:maxLength="500"
+                android:inputType="textMultiLine"
+                android:textColor="#222"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 🔹 선택지 제목 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="선택지 *"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#1E1E1E"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 🔹 선택지 컨테이너 -->
+        <LinearLayout
+            android:id="@+id/optionContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <!-- 🔹 선택지 추가 -->
+        <TextView
+            android:id="@+id/tvAddOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ 선택지 추가"
+            android:textColor="#7A4FF7"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:paddingVertical="4dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- 🔹 안내 문구 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💡 정답을 선택하려면 해당 선택지의 라디오 버튼을 클릭하세요"
+            android:textSize="13sp"
+            android:textColor="#555"
+            android:layout_marginTop="24dp"
+            android:background="#EDEBFF"
+            android:padding="10dp" />
+
+        <!-- 🔹 등록 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmitQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="퀴즈 등록하기"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#7A4FF7"
+            android:layout_marginTop="24dp"
+            style="@style/Widget.MaterialComponents.Button" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ======================================================
+         Base Theme (Light + Dark 모두 지원)
+         ====================================================== -->
+    <style name="Base.Theme.Login_new" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- 라이트/다크 공통 커스터마이징 가능 -->
+        <!-- (필요하면 색상 토큰 추가 가능) -->
+
+        <!-- 🌙 다크 모드 적용용 background/foreground -->
+        <item name="android:colorBackground">#000000</item>
+        <item name="colorOnBackground">@color/textPrimary</item>
+
+    </style>
+
+    <!-- ======================================================
+         Final App Theme
+         ====================================================== -->
+    <style name="Theme.Login_new" parent="Base.Theme.Login_new" />
+
+</resources>

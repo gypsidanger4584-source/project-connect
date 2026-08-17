@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    tools:context=".alogic.MainActivity">
+
+    <!-- 🔷 상단 툴바 -->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_toolbar_round_all"
+        android:clipToOutline="true"
+        android:elevation="8dp"
+        android:outlineProvider="background">
+
+        <!-- 로고 -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ys_logo"
+            android:contentDescription="Logo" />
+
+        <!-- 메뉴 버튼 -->
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_menu"
+            app:tint="@android:color/white"
+            android:contentDescription="메뉴" />
+    </RelativeLayout>
+
+    <!-- 🔷 상단 아이콘 스크롤 -->
+    <HorizontalScrollView
+        android:id="@+id/top_icons_scroll"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:elevation="4dp"
+        android:clipToOutline="true"
+        android:outlineProvider="background" />
+
+    <!-- 🔔 공지 버튼 영역 (간격 줄이기용: 최소 높이) -->
+    <FrameLayout
+        android:id="@+id/notice_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_icons_scroll"
+        android:layout_marginTop="2dp">
+
+        <ImageButton
+            android:id="@+id/btnNotice"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|top"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_notice_circle"
+            android:contentDescription="공지사항 보기"
+            android:elevation="15dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_notifications"
+            app:tint="#7A4FF7" />
+
+    </FrameLayout>
+
+    <!-- 🔷 메인 RecyclerView (공지 아래 간격 최소화) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_below="@id/notice_area"
+        android:layout_above="@id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:scrollbars="vertical"
+        android:clipToPadding="false" />
+
+    <!-- 🔷 하단 네비게이션 -->
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_bottom_nav"
+        android:elevation="8dp"
+        android:gravity="center">
+
+        <!-- 게시판 -->
+        <LinearLayout
+            android:id="@+id/nav_board"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_board"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_chat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="게시판"
+                android:textSize="13sp"
+                android:textColor="#0B325A"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 스터디 -->
+        <LinearLayout
+            android:id="@+id/btnStudyBoard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_study" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디"
+                android:textSize="12sp"
+                android:textColor="#0B325A"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 시간표 -->
+        <LinearLayout
+            android:id="@+id/btntimetable"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_timetable" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간표"
+                android:textSize="12sp"
+                android:textColor="#0B325A"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 랜덤매칭 -->
+        <LinearLayout
+            android:id="@+id/nav_random_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_random_chat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_utensils_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="랜덤매칭"
+                android:textSize="12sp"
+                android:textColor="#0B325A"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ✨ Floating Action Button (글쓰기) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/bottom_nav"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_pen"
+        app:tint="@android:color/white"
+        app:backgroundTint="#0B325A"
+        app:elevation="8dp"
+        app:useCompatPadding="true"
+        app:fabSize="normal"/>
+
+    <!-- ✨ AI 버튼: 위로 올려서 화면 안 가리게, 하지만 notice_area 높이에는 영향 X -->
+    <ImageButton
+        android:id="@+id/btn_ai"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_ic_chat_ai_border"
+        android:contentDescription="AI"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_chat_ai"
+        app:elevation="8dp" />
+
+</RelativeLayout>

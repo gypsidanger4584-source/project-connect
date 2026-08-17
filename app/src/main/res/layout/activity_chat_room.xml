@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootChatRoom"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- 🔹 상단 바 -->
+    <LinearLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:background="#FFFFFF">
+
+        <!-- 방 제목 / 상대 이름 -->
+        <TextView
+            android:id="@+id/tvRoomTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="학식 랜덤채팅"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+        <!-- 점 세 개 버튼 (오른쪽 상단 메뉴) -->
+        <ImageView
+            android:id="@+id/btnMore"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="8dp"
+            android:contentDescription="더보기"
+            android:src="@drawable/ic_more_vert" />
+    </LinearLayout>
+
+    <!-- 🔹 메시지 리스트 + 퇴장 안내 오버레이 -->
+    <FrameLayout
+        android:id="@+id/chatContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 실제 채팅 리스트 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <!-- 🔔 상대방 퇴장 안내 중앙 오버레이 (현재는 다이얼로그로만 사용 중, 필요시 사용) -->
+        <LinearLayout
+            android:id="@+id/layoutExitOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvExitLine1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="끝"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#999999"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvExitLine2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="네"
+                android:textSize="16sp"
+                android:textColor="#999999"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvExitLine3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상대방이 종료하였습니다."
+                android:textSize="14sp"
+                android:textColor="#666666" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- 🔹 입력창 -->
+    <include
+        android:id="@+id/chat_input"
+        layout="@layout/chat_input" />
+
+</LinearLayout>

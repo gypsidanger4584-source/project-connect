@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="14dp"
+    android:background="@drawable/bg_card_white"
+    android:layout_marginBottom="10dp"
+    android:elevation="1dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/default_profile"
+        android:background="@drawable/bg_circle_gray"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="10dp"
+        android:clipToOutline="true" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvProblemTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스택과 큐의 차이점"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#222222" />
+
+        <TextView
+            android:id="@+id/tvWriter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이지현 · 2시간 전"
+            android:textSize="12sp"
+            android:textColor="#777"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+</LinearLayout>

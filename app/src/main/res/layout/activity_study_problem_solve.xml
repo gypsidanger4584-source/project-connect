@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FB"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 🔹 상단 툴바 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="뒤로가기"
+                app:tint="#333" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="문제 제목"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222"
+                android:gravity="center"
+                android:paddingEnd="28dp" />
+        </LinearLayout>
+
+        <!-- 🔹 작성자 정보 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/default_profile"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_mask" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/tvAuthorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="작성자 이름"
+                    android:textColor="#333"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvPostDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1일 전"
+                    android:textColor="#777"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🔹 문제 본문 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#111"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="다음 중 O(n log n)의 시간 복잡도를 가지는 정렬 알고리즘이 아닌 것은?"
+            android:textColor="#333"
+            android:textSize="15sp"
+            android:padding="12dp"
+            android:background="@drawable/bg_white_card"
+            android:elevation="1dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 🏆 트로피 아이콘 (정답 시 표시) -->
+        <ImageView
+            android:id="@+id/ivTrophy"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_trophy_gold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone" />
+
+        <!-- 🔹 선택지 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="선택지"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#111"
+            android:layout_marginBottom="4dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:dividerPadding="8dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 🔹 문제 이동 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevProblem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="⬅ 이전 문제"
+                android:textAllCaps="false"
+                android:textColor="#333"
+                android:backgroundTint="#E6E6E6"
+                style="@style/Widget.MaterialComponents.Button" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNextProblem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="다음 문제 ➡"
+                android:textAllCaps="false"
+                android:textColor="#333"
+                android:backgroundTint="#E6E6E6"
+                style="@style/Widget.MaterialComponents.Button" />
+        </LinearLayout>
+
+        <!-- 🔥 🔥 🔥 여기 추가됨 — 문제 삭제 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteProblem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문제 삭제하기"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#E53935"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.MaterialComponents.Button"
+            android:elevation="2dp"
+            android:visibility="gone" />
+
+        <!-- 🔹 이미 푼 문제 안내 -->
+        <TextView
+            android:id="@+id/tvSolvedNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ 이미 푼 문제입니다."
+            android:textColor="#4CAF50"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:background="#D7FAD7"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- 🔹 정답 제출 버튼 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmitAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="정답 제출하기"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#7A4FF7"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.Button"
+            android:elevation="2dp" />
+
+    </LinearLayout>
+</ScrollView>
