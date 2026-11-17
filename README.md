@@ -1,0 +1,55 @@
+# 연성 커넥트 (project-connect)
+
+캠퍼스 생활용 Android 앱입니다. 게시판, 시간표, 캠퍼스 지도, 스터디방, 학식 랜덤 매칭, AI 채팅 화면으로 구성되어 있습니다. 앱 이름은 `연성 커넥트`(`strings.xml`의 `app_name`)입니다.
+
+## 주요 기능
+
+아래 내용은 소스 코드에서 확인되는 기능입니다.
+
+| 기능 | 구현 내용 | 관련 클래스 |
+|------|-----------|-------------|
+| 로그인 / 회원가입 | 학번으로 이메일을 조회한 뒤 Firebase Auth(이메일·비밀번호)로 로그인. 저장된 계정으로 `BiometricPrompt` 생체 인증 로그인을 지원하고, 학번으로 비밀번호 재설정 메일을 보내는 계정 찾기 화면이 있음 | `LoginActivity`, `RegisterActivity`, `FindAccountActivity` |
+| 게시판 | 글 작성·상세·수정, 댓글, 카테고리 설정, 검색. Firestore `posts` 컬렉션 사용 | `WriteActivity`, `PostDetailActivity`, `EditPostActivity`, `CategorySettingsActivity`, `SearchDialog` |
+| 시간표 | Room DB에 강의를 저장하고, WorkManager `PeriodicWorkRequest`로 다음 수업 알림을 띄움 | `TimetableActivity`, `TimetableDatabase`, `ReminderWorker` |
+| 메모 | Room DB에 저장. 만료일은 기준일로부터 N일 뒤 23:59:59.999로 계산 | `MemoEntity`, `MemoRepository`, `MemoExpireHelper` |
+| 캠퍼스 지도 | 지도 화면, 확대·축소 레이아웃, 건물 상세 화면 | `CampusMap`, `ZoomableFrameLayout`, `BuildingDetail` |
+| 스터디방 | 방 생성, 방 채팅, 문제 등록과 풀이. Firestore `studyRooms/{roomId}` 아래에 `participants`, `messages`, `problems/solvedUsers`를 둠 | `StudyRoomCreateActivity`, `StudyChatActivity`, `StudyProblemActivity`, `StudyProblemSolveActivity` |
+| 점수와 칭호 | 문제를 맞히면 점수를 올리고 5점마다 칭호가 바뀜 (칭호 50개) | `TitleManager`, `TitleChangeActivity` |
+| 학식 랜덤 매칭 | Firestore 대기열(`waiting`)과 트랜잭션으로 짝을 맺고, 1분 타이머 안에 매칭되지 않으면 실패 화면으로 이동. 매칭 뒤 채팅방에서 퇴장·신고 메뉴 제공 | `RandomMatchManager`, `RandomMatchActivity`, `MatchFailActivity`, `ChatRoomActivity` |
+| AI 채팅 | Retrofit으로 OpenAI API(`gpt-4o-mini`)를 호출 | `ChatActivity`, `RetrofitInstance`, `ChatGptApi` |
+
+## 기술 스택
+
+| 구분 | 기술 |
+|------|------|
+| 언어 / 빌드 | Java 17, Gradle(Kotlin DSL), Android Gradle Plugin 8.13.1 |
+| Android | minSdk 31, targetSdk / compileSdk 35 |
+| 인증 / 서버 | Firebase Auth 22.3.0, Cloud Firestore 25.1.4, Realtime Database 20.3.0 |
+| 로컬 저장 | Room 2.6.1 (KSP) |
+| 백그라운드 작업 | WorkManager 2.9.0 |
+| 네트워크 | Retrofit 2.11.0 (Gson converter), OkHttp logging-interceptor 4.12.0 |
+| UI / 기타 | Material 1.12.0, ConstraintLayout 2.2.1, Glide 4.16.0, Biometric 1.1.0, Guava 32.1.3-android |
+
+## 코드 구조
+
+```
+app/src/main/java/com/example/login_new/
+  ├─ alogic/   Manifest에 등록된 대부분의 화면과 Firestore·Room 로직
+  └─ login/    MyPage, EditPostActivity (alogic과 같은 이름의 클래스가 일부 중복되어 있음)
+app/src/main/assets/profanity_filter.tflite   욕설 필터용 모델 파일 (현재 코드에서 사용하지 않음)
+release/       app-release.apk 등 릴리스 산출물
+```
+
+## 실행 방법
+
+1. Android Studio에서 프로젝트를 열고 Gradle 동기화를 합니다.
+2. 에뮬레이터 또는 기기(Android 12, API 31 이상)에서 `app`을 실행합니다.
+3. AI 채팅을 쓰려면 `RetrofitInstance.java`의 `OPENAI_API_KEY`에 키를 넣어야 합니다. 현재 값은 빈 문자열입니다.
+
+## 확인되지 않은 항목
+
+- 개발 기간: [작성 필요]
+- 개발 인원과 본인 역할: [작성 필요]
+- 실행 화면 캡처: [작성 필요]
+- 회고: [작성 필요]
+- `profanity_filter.tflite`는 assets에 있고 TensorFlow Lite 버전이 `libs.versions.toml`에 정의되어 있지만, `app/build.gradle.kts`에서 사용하지 않고 채팅 전송 코드(`ChatRoomActivity`)에도 "욕설 필터 제거: 바로 전송"이라고 되어 있어 호출되지 않습니다.
