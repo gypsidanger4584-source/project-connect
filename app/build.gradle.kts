@@ -1,3 +1,5 @@
+import java.util.Properties
+
 // -----------------------------------------------------------
 // app/build.gradle.kts (최종 수정 + Retrofit + OkHttp 로깅)
 // -----------------------------------------------------------
@@ -8,6 +10,16 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.devtools.ksp")
 }
+
+// OpenAI 키는 코드에 넣지 않고 local.properties(OPENAI_API_KEY=...) 또는 환경변수에서 읽는다.
+// local.properties는 .gitignore 대상이다. 키가 없으면 빈 문자열이 들어가 AI 채팅은 동작하지 않는다.
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}
+val openAiApiKey: String = localProperties.getProperty("OPENAI_API_KEY")
+    ?: System.getenv("OPENAI_API_KEY")
+    ?: ""
 
 android {
     namespace = "com.example.login_new"
@@ -20,6 +32,13 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val escapedKey = openAiApiKey.replace("\\", "\\\\").replace("\"", "\\\"")
+        buildConfigField("String", "OPENAI_API_KEY", "\"$escapedKey\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -66,6 +85,7 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.firestore)
     implementation(libs.biometric)
+    implementation(libs.androidx.security.crypto)
 
     // ✅ Guava & WorkManager
     implementation(libs.guava)

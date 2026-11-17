@@ -75,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         prefs = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        // 이전 버전이 평문으로 저장한 비밀번호를 암호화 저장소로 옮긴다.
+        SecureCredentialStore.migrateLegacyPassword(this, prefs, KEY_USER_PASSWORD);
 
         emailText = findViewById(R.id.studentNumberText);
         passwordText = findViewById(R.id.passwordText);
@@ -197,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (isAutoLoginEnabled) {
             String savedStudentId = prefs.getString(KEY_USER_STUDENT_ID, null);
-            String savedPassword = prefs.getString(KEY_USER_PASSWORD, null);
+            String savedPassword = SecureCredentialStore.getPassword(this);
 
             if (!TextUtils.isEmpty(savedStudentId) && !TextUtils.isEmpty(savedPassword)) {
                 // UI를 비활성화하고 자동 로그인 시도
@@ -273,11 +275,12 @@ public class LoginActivity extends AppCompatActivity {
         if (isChecked) {
             // 자동 로그인 활성화 시, 학번과 비밀번호 저장
             editor.putString(KEY_USER_STUDENT_ID, studentId);
-            editor.putString(KEY_USER_PASSWORD, password);
+            // 비밀번호는 평문 prefs가 아니라 암호화 저장소에 보관한다.
+            SecureCredentialStore.putPassword(this, password);
         } else {
             // 자동 로그인 해제 시, 저장된 정보 삭제
             editor.remove(KEY_USER_STUDENT_ID);
-            editor.remove(KEY_USER_PASSWORD);
+            SecureCredentialStore.removePassword(this);
         }
 
         editor.apply();
@@ -373,7 +376,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 // ✅ 지문 인증 성공 시: 자동 로그인 정보 사용하여 Firebase 로그인
                 String savedStudentId = prefs.getString(KEY_USER_STUDENT_ID, null);
-                String savedPassword = prefs.getString(KEY_USER_PASSWORD, null);
+                String savedPassword = SecureCredentialStore.getPassword(LoginActivity.this);
                 if (savedStudentId != null && savedPassword != null) {
                     signInWithSavedCredentials(savedStudentId, savedPassword);
                 } else {

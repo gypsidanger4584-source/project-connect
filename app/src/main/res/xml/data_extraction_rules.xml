@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-   Sample data extraction rules file; uncomment and customize as necessary.
+   데이터 추출 규칙 (API 31 이상).
+   로그인 정보가 담긴 SharedPreferences는 클라우드 백업과 기기 간 전송에서 제외한다.
    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
-   for details.
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include .../>
-        <exclude .../>
-        -->
+        <exclude domain="sharedpref" path="loginPrefs.xml"/>
+        <exclude domain="sharedpref" path="auth_prefs.xml"/>
+        <exclude domain="sharedpref" path="secure_login_prefs.xml"/>
     </cloud-backup>
-    <!--
     <device-transfer>
-        <include .../>
-        <exclude .../>
+        <exclude domain="sharedpref" path="loginPrefs.xml"/>
+        <exclude domain="sharedpref" path="auth_prefs.xml"/>
+        <exclude domain="sharedpref" path="secure_login_prefs.xml"/>
     </device-transfer>
-    -->
 </data-extraction-rules>

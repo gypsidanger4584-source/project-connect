@@ -556,6 +556,8 @@ public class CategorySettingsActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
 
         getSharedPreferences("loginPrefs", MODE_PRIVATE).edit().clear().apply();
+        // 자동 로그인용 비밀번호(암호화 저장소)도 함께 삭제
+        SecureCredentialStore.removePassword(this);
 
         getSharedPreferences("auth_prefs", MODE_PRIVATE)
                 .edit()

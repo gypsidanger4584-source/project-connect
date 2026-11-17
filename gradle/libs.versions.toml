@@ -11,6 +11,7 @@ constraintlayout = "2.2.1"
 googleGmsGoogleServices = "4.4.2"
 firebaseFirestore = "25.1.4"
 biometric = "1.1.0"
+securityCrypto = "1.1.0-alpha06"
 
 # 추가된 정의
 room = "2.6.1"
@@ -42,6 +43,9 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 
 # --- Biometric ---
 biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+
+# --- Security (암호화 SharedPreferences) ---
+androidx-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCrypto" }
 
 # --- Room ---
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }

@@ -44,7 +44,8 @@ release/       app-release.apk 등 릴리스 산출물
 
 1. Android Studio에서 프로젝트를 열고 Gradle 동기화를 합니다.
 2. 에뮬레이터 또는 기기(Android 12, API 31 이상)에서 `app`을 실행합니다.
-3. AI 채팅을 쓰려면 `RetrofitInstance.java`의 `OPENAI_API_KEY`에 키를 넣어야 합니다. 현재 값은 빈 문자열입니다.
+3. AI 채팅을 쓰려면 프로젝트 루트의 `local.properties`(git에 올라가지 않음)에 `OPENAI_API_KEY=키값`을 추가하거나 환경 변수 `OPENAI_API_KEY`를 설정합니다. 값은 빌드 시 `BuildConfig`로 주입되며, 없으면 빈 문자열입니다.
+4. 자동 로그인용 비밀번호는 `EncryptedSharedPreferences`(`SecureCredentialStore`)에 저장하고, 로그아웃 시 삭제합니다. 로그인 관련 SharedPreferences는 백업 대상에서 제외했습니다.
 
 ## 확인되지 않은 항목
 
