@@ -153,7 +153,8 @@ public class CategorySettingsActivity extends AppCompatActivity {
         textAccountId.setOnClickListener(v -> changeUserId());
         textAccountPassword.setOnClickListener(v -> changePassword());
         textAccountEmail.setOnClickListener(v -> changeEmail());
-        security_key.setOnClickListener(v -> changeAdmin());
+        // 관리자 전환 기능 제거: 관리자 지정은 Firebase 콘솔에서 users 문서의 role 값으로만 변경
+        security_key.setVisibility(android.view.View.GONE);
 
         // 유틸 관련
         textUtilDepartment.setOnClickListener(v -> changeMajor());
@@ -995,61 +996,6 @@ public class CategorySettingsActivity extends AppCompatActivity {
                 .show();
     }
 
-    /**
-     * 관리자 코드 입력 → role = admin + UI 즉시 반영
-     */
-    private void changeAdmin() {
-        FirebaseUser cur = mAuth.getCurrentUser();
-        if (cur == null) {
-            Toast.makeText(this, "로그인 정보가 없습니다.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        EditText input = new EditText(this);
-        input.setHint("관리자 코드");
-        input.setPadding(30, 30, 30, 30);
-
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        int marginInDp = (int) (24 * getResources().getDisplayMetrics().density);
-        params.setMargins(marginInDp, 0, marginInDp, 0);
-        input.setLayoutParams(params);
-
-        LinearLayout container = new LinearLayout(this);
-        container.setOrientation(LinearLayout.VERTICAL);
-        container.addView(input);
-
-        new AlertDialog.Builder(this)
-                .setTitle("관리자 코드 입력")
-                .setView(container)
-                .setPositiveButton("확인", (dialog, which) -> {
-                    String enteredCode = input.getText().toString().trim();
-
-                    if (enteredCode.isEmpty()) {
-                        Toast.makeText(this, "코드를 입력하세요.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    if (enteredCode.equals("G7p!R2x@")) {
-                        db.collection("users").document(cur.getUid())
-                                .update("role", "admin")
-                                .addOnSuccessListener(a -> {
-                                    Toast.makeText(this, "관리자로 변경되었습니다.", Toast.LENGTH_SHORT).show();
-                                    // 관리자 UI 즉시 반영
-                                    loadUserInfo();
-                                })
-                                .addOnFailureListener(e ->
-                                        Toast.makeText(this, "변경 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                                );
-                    } else {
-                        Toast.makeText(this, "잘못된 코드입니다.", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("취소", null)
-                .show();
-    }
 
     // --- DepartmentAdapter (학과 목록 RecyclerView 어댑터) ---
     private static class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.ViewHolder> {
