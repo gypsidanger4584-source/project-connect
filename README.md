@@ -11,7 +11,8 @@
 | 로그인 / 회원가입 | 학번으로 이메일을 조회한 뒤 Firebase Auth(이메일·비밀번호)로 로그인. 저장된 계정으로 `BiometricPrompt` 생체 인증 로그인을 지원하고, 학번으로 비밀번호 재설정 메일을 보내는 계정 찾기 화면이 있음 | `LoginActivity`, `RegisterActivity`, `FindAccountActivity` |
 | 게시판 | 글 작성·상세·수정, 댓글, 카테고리 설정, 검색. Firestore `posts` 컬렉션 사용 | `WriteActivity`, `PostDetailActivity`, `EditPostActivity`, `CategorySettingsActivity`, `SearchDialog` |
 | 시간표 | Room DB에 강의를 저장하고, WorkManager `PeriodicWorkRequest`로 다음 수업 알림을 띄움 | `TimetableActivity`, `TimetableDatabase`, `ReminderWorker` |
-| 메모 | Room DB에 저장. 만료일은 기준일로부터 N일 뒤 23:59:59.999로 계산 | `MemoEntity`, `MemoRepository`, `MemoExpireHelper` |
+| 메모 | 시간표 화면의 메모는 Room DB(`MemoEntity`, `LectureRepository`)에 저장. 만료일은 기준일로부터 N일 뒤 23:59:59.999로 계산. `MemoRepository`는 Firestore `memos` 컬렉션을 쓰는 별도 구현 | `MemoEntity`, `LectureRepository`, `MemoRepository`, `MemoExpireHelper` |
+| 관리자 | 사용자 문서의 `role` 값이 `admin`이면 공지사항 게시판 글 작성, 공지 수정·삭제, 닉네임 옆 관리자 표시와 프로필 테두리가 적용됨. 설정 화면에서 관리자 코드를 입력해 전환 | `CategorySettingsActivity`, `WriteActivity`, `NoticeAdapter`, `MainActivity` |
 | 캠퍼스 지도 | 지도 화면, 확대·축소 레이아웃, 건물 상세 화면 | `CampusMap`, `ZoomableFrameLayout`, `BuildingDetail` |
 | 스터디방 | 방 생성, 방 채팅, 문제 등록과 풀이. Firestore `studyRooms/{roomId}` 아래에 `participants`, `messages`, `problems/solvedUsers`를 둠 | `StudyRoomCreateActivity`, `StudyChatActivity`, `StudyProblemActivity`, `StudyProblemSolveActivity` |
 | 점수와 칭호 | 문제를 맞히면 점수를 올리고 5점마다 칭호가 바뀜 (칭호 50개) | `TitleManager`, `TitleChangeActivity` |
@@ -36,7 +37,7 @@
 app/src/main/java/com/example/login_new/
   ├─ alogic/   Manifest에 등록된 대부분의 화면과 Firestore·Room 로직
   └─ login/    MyPage, EditPostActivity (alogic과 같은 이름의 클래스가 일부 중복되어 있음)
-app/src/main/assets/profanity_filter.tflite   욕설 필터용 모델 파일 (현재 코드에서 사용하지 않음)
+app/src/main/assets/profanity_filter.tflite   욕설 필터용 모델 파일 (필터 제거 후 파일만 남음)
 release/       app-release.apk 등 릴리스 산출물
 ```
 
@@ -47,10 +48,26 @@ release/       app-release.apk 등 릴리스 산출물
 3. AI 채팅을 쓰려면 프로젝트 루트의 `local.properties`(git에 올라가지 않음)에 `OPENAI_API_KEY=키값`을 추가하거나 환경 변수 `OPENAI_API_KEY`를 설정합니다. 값은 빌드 시 `BuildConfig`로 주입되며, 없으면 빈 문자열입니다.
 4. 자동 로그인용 비밀번호는 `EncryptedSharedPreferences`(`SecureCredentialStore`)에 저장하고, 로그아웃 시 삭제합니다. 로그인 관련 SharedPreferences는 백업 대상에서 제외했습니다.
 
-## 확인되지 않은 항목
+## Firebase 설정
 
-- 개발 기간: [작성 필요]
-- 개발 인원과 본인 역할: [작성 필요]
-- 실행 화면 캡처: [작성 필요]
-- 회고: [작성 필요]
-- `profanity_filter.tflite`는 assets에 있고 TensorFlow Lite 버전이 `libs.versions.toml`에 정의되어 있지만, `app/build.gradle.kts`에서 사용하지 않고 채팅 전송 코드(`ChatRoomActivity`)에도 "욕설 필터 제거: 바로 전송"이라고 되어 있어 호출되지 않습니다.
+콘솔에서 확인한 내용이며, 보안 규칙과 색인은 이 저장소에 파일로 들어 있지 않습니다.
+
+- Firestore 보안 규칙: 게시글은 작성자 또는 `role == "admin"`만 수정·삭제, 랜덤 채팅방과 메시지는 방의 `members`에 포함된 사용자만 접근, 학번 확인용 `student_numbers`는 단건 조회만 허용
+- Firestore 복합 색인 3개: `posts`(border, timestamp 내림차순), `studyRooms`(isOpen, createdAt 내림차순), `waiting`(status, createdAt)
+- Authentication: 이메일/비밀번호, Google 로그인 사용 설정
+
+## 개발 정보
+
+| 항목 | 내용 |
+|---|---|
+| 개발 기간 | 2025.04 ~ 2025.11 (이력서 기준) |
+| 개발 인원 | 4인 팀 (이력서 기준) |
+| 본인 담당 | 시간표, 로그인, 학식 랜덤 매칭 채팅, 관리자 기능, 스터디 채팅방 아이디어(기획) |
+| 실행 화면 캡처 | [작성 필요] |
+| 회고 | [작성 필요] |
+
+## 비속어 필터
+
+`TensorFlow Lite` 모델로 채팅 비속어 필터를 구현했다가 문제가 생겨 제거했습니다. 현재는 `app/src/main/assets/profanity_filter.tflite` 파일만 남아 있고, `ChatRoomActivity`는 필터 없이 바로 전송합니다(`app/build.gradle.kts`에도 TFLite 의존성이 없음).
+
+- 제거한 사유: [작성 필요]
