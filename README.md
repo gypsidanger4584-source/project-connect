@@ -52,7 +52,7 @@ release/       app-release.apk 등 릴리스 산출물
 
 콘솔에서 확인한 내용이며, 보안 규칙과 색인은 이 저장소에 파일로 들어 있지 않습니다.
 
-- Firestore 보안 규칙: 게시글은 작성자 또는 `role == "admin"`만 수정·삭제, 랜덤 채팅방과 메시지는 방의 `members`에 포함된 사용자만 접근, 학번 확인용 `student_numbers`는 단건 조회만 허용
+- Firestore 보안 규칙: 게시글은 작성자 또는 `role == "admin"`만 수정·삭제, 랜덤 채팅방과 메시지는 방의 `members`에 포함된 사용자만 접근, 학번 확인용 `student_numbers`는 단건 조회만 허용, `users` 문서의 `role`은 본인이 바꿀 수 없음(관리자 지정은 콘솔에서만)
 - Firestore 복합 색인 3개: `posts`(border, timestamp 내림차순), `studyRooms`(isOpen, createdAt 내림차순), `waiting`(status, createdAt)
 - Authentication: 이메일/비밀번호, Google 로그인 사용 설정
 
