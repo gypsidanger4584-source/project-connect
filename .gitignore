@@ -13,3 +13,16 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# IDE settings
+/.idea/
+
+# Release artifacts (build locally or use GitHub Releases)
+/release/
+/app/release/
+*.apk
+*.aab
+*.zip
+
+# Firebase config (download from Firebase console)
+app/google-services.json
