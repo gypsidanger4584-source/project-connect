@@ -10,7 +10,7 @@
 |------|-----------|-------------|
 | 로그인 / 회원가입 | 학번으로 이메일을 조회한 뒤 Firebase Auth(이메일·비밀번호)로 로그인. 저장된 계정으로 `BiometricPrompt` 생체 인증 로그인을 지원하고, 학번으로 비밀번호 재설정 메일을 보내는 계정 찾기 화면이 있음 | `LoginActivity`, `RegisterActivity`, `FindAccountActivity` |
 | 게시판 | 글 작성·상세·수정, 댓글, 좋아요, 카테고리 설정, 검색. Firestore `posts` 컬렉션 사용 | `WriteActivity`, `PostDetailActivity`, `EditPostActivity`, `CategorySettingsActivity`, `SearchDialog` |
-| 시간표 | Room DB에 강의를 저장하고, 터치 이벤트를 직접 처리하는 커스텀 View로 탭·드래그로 강의를 등록. WorkManager `PeriodicWorkRequest`(15분 주기)가 15분 안에 시작하는 다음 수업을 알림 | `TimetableActivity`, `TimetableView`, `TimetableDatabase`, `ReminderWorker` |
+| 시간표 | Room DB에 강의를 저장하고, 터치 이벤트를 직접 처리하는 커스텀 View로 탭·드래그로 강의를 등록. 강의 1개 직접 입력에 필요한 UI 클릭을 유사 앱(에브리타임) 7회에서 3회로 줄임(타자 제외). WorkManager `PeriodicWorkRequest`(15분 주기)가 15분 안에 시작하는 다음 수업을 알림. [입력 시연 영상](docs/timetable-touch-compare-7to3.mp4) | `TimetableActivity`, `TimetableView`, `TimetableDatabase`, `ReminderWorker` |
 | 메모 | 시간표 화면의 메모는 Room DB(`MemoEntity`, `LectureRepository`)에 저장. 만료일은 기준일로부터 N일 뒤 23:59:59.999로 계산하고, D-Day 칩을 표시하며, 만료된 메모는 목록에서 제외함(Room 행 삭제는 하지 않음). `MemoRepository`는 Firestore `memos` 컬렉션을 쓰는 별도 구현 | `MemoEntity`, `LectureRepository`, `MemoRepository`, `MemoExpireHelper`, `MemoAdapter` |
 | 관리자 | 사용자 문서의 `role` 값이 `admin`이면 공지사항 게시판 글 작성, 공지 수정·삭제, 닉네임 옆 관리자 표시와 프로필 테두리가 적용됨. `role`은 앱에서 바꿀 수 없고 Firebase 콘솔에서만 지정함 | `CategorySettingsActivity`, `WriteActivity`, `NoticeAdapter`, `MainActivity` |
 | 캠퍼스 지도 | 지도 화면, 확대·축소 레이아웃, 건물 상세 화면 | `CampusMap`, `ZoomableFrameLayout`, `BuildingDetail` |
@@ -109,6 +109,13 @@ APK 같은 빌드 산출물은 저장소에 포함하지 않습니다.
 - 소스에 들어 있던 OpenAI API 키를 제거하고 `BuildConfig`로 주입하도록 바꿨습니다.
 - 앱에 하드코딩된 관리자 코드와 앱 안에서 관리자로 승격하는 기능을 없앴습니다.
 - Firestore 보안 규칙에서 `users.role`을 본인이 바꿀 수 없도록 막았습니다.
+## 링크 · 시연
+
+| 항목 | 링크 |
+|---|---|
+| Repository | https://github.com/gypsidanger4584-source/project-connect |
+| 시간표 입력 시연 | [에브리타임 7클릭 → 커넥트 3클릭 (타자 제외)](docs/timetable-touch-compare-7to3.mp4) |
+
 ## 개발 정보
 
 | 항목 | 내용 |
